@@ -7,6 +7,10 @@ RUN cd /usr/local \
 ENV NOTIFICATION_SECRET NOTIFICATION_SECRET
 ENV NOTIFICATION_KEY NOTIFICATION_KEY
 
+VOLUME [ "/usr/local/socketio" ]
+WORKDIR /usr/local/socketio
+
 EXPOSE 3000
 
-CMD ["/usr/local/bin/node /usr/local/socketio/index.js"]
+ENTRYPOINT [ "/usr/local/bin/node" ]
+CMD ["/usr/local/socketio/index.js"]
